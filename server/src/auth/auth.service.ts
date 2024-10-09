@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { Delete, ForbiddenException, Injectable } from '@nestjs/common';
 import { Sequelize } from 'sequelize-typescript';
 import * as argon from 'argon2';
 import { AuthDto } from './dto';
@@ -17,6 +17,7 @@ export class AuthService {
     private config: ConfigService,
   ) {}
   async signup(dto: AuthDto) {
+    
     //generate the password hash
     const hash = await argon.hash(dto.password);
     // save the new user in the db
@@ -25,7 +26,8 @@ export class AuthService {
         email: dto.email,
         hash,
       });
-      return user;
+      
+      return {id: user.id, email: user.email, isActive: user.isActive};
     } catch (error) {
         throw error;
 

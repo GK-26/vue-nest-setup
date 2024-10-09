@@ -12,15 +12,12 @@ export class UserController {
     constructor(private authService: UsersService) {}
     @Get('me')
     getMe(@GetUser() user: User, @GetUser('email') email: string){
-        console.log(`EMAL ${email}`)
+    
         return user
     }
     @Post('createMany')
     createMany(){
         return this.authService.createMany()
     }
-    @Patch()
-    editUser(){
 
-    }
 }
