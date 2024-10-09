@@ -10,6 +10,7 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
+    // db connection
     SequelizeModule.forRoot(databaseConfig),
     ConfigModule.forRoot({
       isGlobal: true,

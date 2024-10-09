@@ -11,7 +11,7 @@ import { UsersService } from './user.service';
 export class UserController {
     constructor(private authService: UsersService) {}
     @Get('me')
-    getMe(@GetUser() user: User, @GetUser('email') email: string){
+    getMe(@GetUser() user: User){
     
         return user
     }

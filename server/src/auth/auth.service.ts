@@ -23,6 +23,8 @@ export class AuthService {
     // save the new user in the db
     try {
       const user = await this.userModel.create({
+        firstName: dto.firstName,
+        lastName: dto.lastName,
         email: dto.email,
         hash,
       });
@@ -64,7 +66,7 @@ export class AuthService {
     const secret = this.config.get('JWT_SECRET');
 
     const token = await this.jwt.signAsync(payload, {
-      expiresIn: '15m',
+      expiresIn: '60m',
       secret: secret,
     });
 
