@@ -43,6 +43,9 @@ $ yarn run start:dev
 
 # production mode
 $ yarn run start:prod
+
+# test mode
+$ yarn run start:test
 ```
 
 ## Run tests
